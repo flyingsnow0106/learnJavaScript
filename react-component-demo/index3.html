@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+    <title>wanghao's React Component</title>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    class MyTitle extends React.Component{
+        constructor(...args){
+            super(...args);
+            this.state = {
+                name: 'vistor'
+            };
+        }
+
+        handleChange(e){
+            let name = e.target.value;
+            this.setState({
+                name: name
+            });
+        }
+
+        render(){
+            return <div>
+                <input type="text" onChange={this.handleChange.bind(this)}/>
+                <p>hello, {this.state.name} </p>
+            </div>;
+        }
+    };
+
+    ReactDOM.render(
+        <MyTitle/>,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>
